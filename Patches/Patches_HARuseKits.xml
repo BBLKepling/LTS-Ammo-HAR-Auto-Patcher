@@ -7,7 +7,7 @@
     <apply>
 
       <Operation Class="XmlExtensions.Conditional">
-        <xpath>{LTS_Race_Loop}/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()="true"] | {LTS_Race_Loop}/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()="True"]</xpath>
+        <xpath>{LTS_Race_Loop}/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()="true" or text()="True"]</xpath>
         <caseTrue>
 
           <Operation Class="XmlExtensions.PatchOperationSafeAdd">
