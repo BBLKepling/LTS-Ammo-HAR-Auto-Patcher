@@ -6,13 +6,15 @@
     <storeIn>LTS_Race_Loop</storeIn>
     <apply>
 
-      <Operation Class="XmlExtensions.PatchOperationSafeAdd">
-        <xpath>{LTS_Race_Loop}</xpath>
-        <safetyDepth>3</safetyDepth>
-        <value>
+      <Operation Class="XmlExtensions.Conditional">
+        <xpath>{LTS_Race_Loop}/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()="true"] | {LTS_Race_Loop}/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()="True"]</xpath>
+        <caseTrue>
 
-          <alienRace>
-            <raceRestriction>
+          <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+            <xpath>{LTS_Race_Loop}/alienRace/raceRestriction</xpath>
+            <safetyDepth>1</safetyDepth>
+            <value>
+
               <whiteApparelList>
                 <li>KitPrimitiveSmall</li>
                 <li>KitPrimitiveMedium</li>
@@ -36,10 +38,11 @@
                 <li MayRequire="joeyjoejoeshabidoo.AirRifles">KitPelletMedium</li>
                 <li MayRequire="joeyjoejoeshabidoo.AirRifles">KitPelletLarge</li>
               </whiteApparelList>
-            </raceRestriction>
-          </alienRace>
 
-        </value>
+            </value>
+          </Operation>
+
+        </caseTrue>
       </Operation>
 
     </apply>
